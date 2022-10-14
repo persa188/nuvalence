@@ -1,7 +1,14 @@
 # Reference Documentation
+## Requirements
+* jdk19
+* bash/zsh - need to run with `./gradlew`
 
-## Assumptions
-<>
+## Description
+For this takehome I decided to create 3 API's in a SpingBoot env. Each API 
+maps to one of the functions that needs to be completed as part of the takehome, ie.:
+* [contains](POST-/api/rectangles/contains)
+* [intersects](POST-/api/rectangles/intersects)
+* [adjacency](POST-/api/rectangles/isAdjacent)
 
 ## QuickStart
 1. Move to the repository root
@@ -33,8 +40,9 @@ cd <path/to/repository/root>
 ./gradlew test
 ```
 
-## API
+# API
 
+## Endpoints
 ### GET /
 This is the test API, it should always return
 ```bash
@@ -52,28 +60,137 @@ The Request Body is defined as follows:
 **type**: JSON \
 **body**: 
  * rectangle_1: [rectangle](#Rectangle)
-##### Example
+ * rectangle_2: [rectangle](#Rectangle)
+
+**Sample Request**:
+```JSON
+{
+    "rectangle_1": {
+        "topLeft": {
+            "x": 0.0,
+            "y": 1.0
+        },
+        "topRight": {
+            "x": 3.0,
+            "y": 1.0
+        },
+        "bottomLeft": {
+            "x": 0.0,
+            "y": 0.0
+        },
+        "bottomRight": {
+            "x": 3.0,
+            "y": 0.0
+        }
+    },
+    "rectangle_2": {
+        "topLeft": {
+            "x": 1.0,
+            "y": 0.5
+        },
+        "topRight": {
+            "x": 2.0,
+            "y": 0.5
+        },
+        "bottomLeft": {
+            "x": 1.0,
+            "y": -0.5
+        },
+        "bottomRight": {
+            "x": 2.0,
+            "y": -0.5
+        }
+    }
+}
+```
+#### ResponseBody
+**type**: JSON \
+**body**:
+* List[[coordinate](#Coordinate)]
+  * this list may be empty if there is no point of intersection.
+
+**Sample Response:**
+```JSON
+[
+    {
+        "x": 1.0,
+        "y": 0.0
+    },
+    {
+        "x": 2.0,
+        "y": 0.0
+    }
+]
+```
 
 ### POST /api/rectangles/contains
+The Request Body is defined as follows:
 
+**type**: JSON \
+**body**:
+* rectangle_1: [rectangle](#Rectangle)
+* rectangle_2: [rectangle](#Rectangle)
+
+**Sample Request**:
+```JSON
+{
+    "rectangle_1": {
+        "topLeft": {
+            "x": 0.0,
+            "y": 1.0
+        },
+        "topRight": {
+            "x": 3.0,
+            "y": 1.0
+        },
+        "bottomLeft": {
+            "x": 0.0,
+            "y": 0.0
+        },
+        "bottomRight": {
+            "x": 3.0,
+            "y": 0.0
+        }
+    },
+    "rectangle_2": {
+        "topLeft": {
+            "x": 1.0,
+            "y": 0.5
+        },
+        "topRight": {
+            "x": 2.0,
+            "y": 0.5
+        },
+        "bottomLeft": {
+            "x": 1.0,
+            "y": -0.5
+        },
+        "bottomRight": {
+            "x": 2.0,
+            "y": -0.5
+        }
+    }
+}
+```
+#### ResponseBody
+**type**: JSON \
+**body**:
+* boolean (true if a or b are contained, else false)
+
+**Sample Response:**
+```JSON
+true
+```
 ### POST /api/rectangles/isAdjacent
 
 ## Types
 ### Rectangle
 type: JSON
 body:
-- topLeft:
-  - x: float
-  - y: float
-- topRight:
-    - x: float
-    - y: float
-- bottomLeft:
-    - x: float
-    - y: float
-- bottomLeft:
-    - x: float
-    - y: float
+- topLeft: [coordinate](#Coordinate)
+- topRight: [coordinate](#Coordinate)
+- bottomLeft: [coordinate](#Coordinate)
+- bottomLeft: [coordinate](#Coordinate)
 
 Example:
 ```JSON
@@ -95,5 +212,27 @@ Example:
     "y": -0.5
   }
 }
+```
+#### ResponseBody
+**type**: JSON \
+**body**:
+* boolean (true if a or b are contained, else false)
 
+**Sample Response:**
+```JSON
+true
+```
+
+### Coordinate
+type: JSON
+body:
+- x: float
+- y: float
+
+Example:
+```JSON
+{
+  "x": 1.1,
+  "y": 1.2
+}
 ```
