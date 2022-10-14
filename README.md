@@ -6,9 +6,9 @@
 ## Description
 For this takehome I decided to create 3 API's in a SpingBoot env. Each API 
 maps to one of the functions that needs to be completed as part of the takehome, ie.:
-* [contains](POST-/api/rectangles/contains)
-* [intersects](POST-/api/rectangles/intersects)
-* [adjacency](POST-/api/rectangles/isAdjacent)
+* [contains](#POST-/api/rectangles/contains)
+* [intersects](#POST-/api/rectangles/intersects)
+* [adjacency](#POST-/api/rectangles/isAdjacent)
 
 ## QuickStart
 1. Move to the repository root
