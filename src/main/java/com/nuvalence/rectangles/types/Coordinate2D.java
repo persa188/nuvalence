@@ -4,14 +4,13 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
+@RequiredArgsConstructor
+/**
+ * A class that represents a point / coordinate on a 2-Dimensional Grid.
+ */
 public class Coordinate2D {
-    private double x;
-    private double y;
-
-    public Coordinate2D(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
+    private final double x;
+    private final double y;
 
     public String toString() {
         return String.format("(%.2f, %.2f)", x, y);

@@ -14,14 +14,14 @@ public class TestRectangleComparisonEngineImpl {
     
     @Test
     public void testTwoRectanglesIntersect() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(1, 0.5),
                 new Coordinate2D(2, 0.5),
                 new Coordinate2D(1, -0.5),
@@ -35,14 +35,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testOverlappingRectanglesDoNotIntersect() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
@@ -54,14 +54,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testWhollyContainedRectanglesDoNotIntersect() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(0.5, 0.7),
                 new Coordinate2D(1.5, 0.7),
                 new Coordinate2D(0.5, 0.2),
@@ -73,14 +73,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testAdjacentRectanglesDoNotIntersect() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(-2, 1),
                 new Coordinate2D(0, 1),
                 new Coordinate2D(-2, 0),
@@ -92,14 +92,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testNonTouchingRectanglesDoNotIntersect() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(5, 3),
                 new Coordinate2D(9, 3),
                 new Coordinate2D(5, 0),
@@ -111,14 +111,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testWhollyContainsHappyPath() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(0.5, 0.7),
                 new Coordinate2D(1.5, 0.7),
                 new Coordinate2D(0.5, 0.2),
@@ -134,14 +134,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testContainsWhenNonTouchingRectanglesReturnsFalse() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(5, 3),
                 new Coordinate2D(9, 3),
                 new Coordinate2D(5, 0),
@@ -153,14 +153,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testContainsWithAdjacentRectanglesReturnsFalse() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(-2, 1),
                 new Coordinate2D(0, 1),
                 new Coordinate2D(-2, 0),
@@ -172,14 +172,14 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testContainsWithIntersectingRectanglesReturnsFalse() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(1, 0.5),
                 new Coordinate2D(2, 0.5),
                 new Coordinate2D(1, -0.5),
@@ -190,15 +190,15 @@ public class TestRectangleComparisonEngineImpl {
     }
 
     @Test
-    public void testIsAdjacentRectanglesHappyPath() {
-        Rectangle a = new Rectangle(
+    public void testIsAdjacentRectanglesProper() {
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(-2, 1),
                 new Coordinate2D(0, 1),
                 new Coordinate2D(-2, 0),
@@ -209,15 +209,55 @@ public class TestRectangleComparisonEngineImpl {
     }
 
     @Test
+    public void testIsAdjacentRectanglesSubLine() {
+        final Rectangle a = new Rectangle(
+                new Coordinate2D(0, 4),
+                new Coordinate2D(3, 4),
+                new Coordinate2D(0, 0),
+                new Coordinate2D(3, 0)
+        );
+
+        // right side will be adjacent sub-line (contained in the adjacent line)
+        final Rectangle b = new Rectangle(
+                new Coordinate2D(-5, 3),
+                new Coordinate2D(0, 3),
+                new Coordinate2D(-5, 1),
+                new Coordinate2D(0, 1)
+        );
+
+        assertEquals(sut.isAdjacent(a, b), true);
+    }
+
+    @Test
+    public void testIsAdjacentRectanglesPartial() {
+        final Rectangle a = new Rectangle(
+                new Coordinate2D(0, 4),
+                new Coordinate2D(3, 4),
+                new Coordinate2D(0, 0),
+                new Coordinate2D(3, 0)
+        );
+
+        // right side will be adjacent partial adjacent (as in instructions diagram)
+        final Rectangle b = new Rectangle(
+                new Coordinate2D(-5, 3),
+                new Coordinate2D(0, 3),
+                new Coordinate2D(-5, 1),
+                new Coordinate2D(0, 0)
+        );
+
+        assertEquals(sut.isAdjacent(a, b), true);
+    }
+
+    @Test
     public void testIsAdjacentWhenRectanglesDoNotTouch() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
 
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(5, 3),
                 new Coordinate2D(9, 3),
                 new Coordinate2D(5, 0),
@@ -229,13 +269,13 @@ public class TestRectangleComparisonEngineImpl {
 
     @Test
     public void testIsAdjacentWhenRectanglesAreEqual() {
-        Rectangle a = new Rectangle(
+        final Rectangle a = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),
                 new Coordinate2D(3, 0)
         );
-        Rectangle b = new Rectangle(
+        final Rectangle b = new Rectangle(
                 new Coordinate2D(0, 1),
                 new Coordinate2D(3, 1),
                 new Coordinate2D(0, 0),

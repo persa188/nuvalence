@@ -21,11 +21,8 @@ public class LineComparisonEngineImpl implements LineComparisonEngine {
         double leftBound = Math.min(a.getCoord1().getX(), a.getCoord2().getX());
         double rightBound = Math.max(a.getCoord1().getX(), a.getCoord2().getX());
 
-        if (coord.getY() <= topBound && coord.getY() >= bottomBound
-                && coord.getX() >= leftBound && coord.getX() <= rightBound) {
-            return true;
-        }
-        return false;
+        return coord.getY() <= topBound && coord.getY() >= bottomBound
+                && coord.getX() >= leftBound && coord.getX() <= rightBound;
     }
 
     public Optional<Coordinate2D> get_intersection(Line2D a, Line2D b) {
@@ -50,7 +47,7 @@ public class LineComparisonEngineImpl implements LineComparisonEngine {
         Coordinate2D coord = new Coordinate2D(x, y);
 
         if (inBounds(a, coord) && inBounds(b, coord)) {
-            return Optional.of(new Coordinate2D(x, y));
+            return Optional.of(coord);
         }
 
         return Optional.empty();

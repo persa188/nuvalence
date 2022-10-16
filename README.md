@@ -1,6 +1,6 @@
 # Reference Documentation
 ## Requirements
-* jdk19
+* jdk19 (linux install instructions [here](https://ubuntuhandbook.org/index.php/2022/03/install-jdk-18-ubuntu/).)
 * bash/zsh - need to run with `./gradlew`
 
 ## Description
@@ -19,6 +19,7 @@ cd <path/to/repository/root>
 2. Start the server
 
 ```bash
+# this will not work if JDK19 is not installed
 ./gradlew bootRun
 ```
 
