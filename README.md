@@ -12,8 +12,26 @@ maps to one of the functions that needs to be completed as part of the takehome,
 
 ### Code Structure
 
-./config
+#### src
+
+##### config
  - this is where the Spring AppConfig lives. I just used this to initialize a bean.
+
+##### controller
+ - this is where the API Controller live, it basically just parses API input and hands it off the the rectangle engine.
+
+##### engine
+ - this is where the biz logic lives
+ - **LineComparisonEngine** is a class that does stuff with 2D Lines (using geometry formulas). The rectangle calculations can be simplified if I split a rectangle into 4 lines (between the points). Because of this, I made the Line2D class & this engine to do stuff with lines.
+ - **RectangleComparisonEngine** is where the Rectangle magic happens, it does all the math that is involved for achieving what the takehome asks for.
+
+#### Types
+- this package contains a bunch of custom data types like Rectangle, Line2D, Coordinate2D that are used by the engines. They're basically just data classes / POJO's and if we did have a DB it's not too far from what we'd load our DB record into. I tried to keep these classes very simpel and bare bones so that the engine could do all the work (so if we wanted to extend this to compare variosu shapes, we can just use a diff engine).
+
+#### src/test
+Unit tests for the above classes in the same structure but under the test directory. Rectangle and line engine are pretty well tested since that's where the biz logic lives. The rest of classes are mainly happy case tests due to time constraints.
+
+There are no integ / smoke / E2E tests due to time constraints.
 
 ## QuickStart
 1. Move to the repository root
