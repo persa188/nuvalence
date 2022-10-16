@@ -10,6 +10,11 @@ maps to one of the functions that needs to be completed as part of the takehome,
 * [intersects](#post-apirectanglesintersects)
 * [adjacency](#post-apirectanglesisadjacent)
 
+### Code Structure
+
+./config
+ - this is where the Spring AppConfig lives. I just used this to initialize a bean.
+
 ## QuickStart
 1. Move to the repository root
 ```bash
