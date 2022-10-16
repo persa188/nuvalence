@@ -1,7 +1,8 @@
 # Reference Documentation
+
 ## Requirements
-* jdk19 (linux install instructions [here](https://ubuntuhandbook.org/index.php/2022/03/install-jdk-18-ubuntu/).)
-* bash/zsh - need to run with `./gradlew`
+* **jdk19** (linux install instructions [here](https://ubuntuhandbook.org/index.php/2022/03/install-jdk-18-ubuntu/).)
+* bash/zsh - need to run with `./gradlew` (see the quickstart section of this README for how to run)
 
 ## Description
 For this takehome I decided to create 3 API's in a SpingBoot env. Each API 
